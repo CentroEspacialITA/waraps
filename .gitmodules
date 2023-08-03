@@ -1,0 +1,48 @@
+[submodule "lrs2/geographic_msgs"]
+	path = lrs2/geographic_msgs
+	url = https://gitlab.liu.se/lrs2/geographic_msgs.git
+[submodule "lrs2/lrs_ardupilot"]
+	path = lrs2/lrs_ardupilot
+	url = https://gitlab.liu.se/lrs2/lrs_ardupilot.git
+[submodule "lrs2/lrs_doc"]
+	path = lrs2/lrs_doc
+	url = https://gitlab.liu.se/lrs2/lrs_doc.git
+[submodule "lrs2/lrs_exec"]
+	path = lrs2/lrs_exec
+	url = https://gitlab.liu.se/lrs2/lrs_exec.git
+[submodule "lrs2/lrs_m100_msgs"]
+	path = lrs2/lrs_m100_msgs
+	url = https://gitlab.liu.se/lrs2/lrs_m100_msgs.git
+[submodule "lrs2/lrs_msgs_common"]
+	path = lrs2/lrs_msgs_common
+	url = https://gitlab.liu.se/lrs2/lrs_msgs_common.git
+[submodule "lrs2/lrs_msgs_tst"]
+	path = lrs2/lrs_msgs_tst
+	url = https://gitlab.liu.se/lrs2/lrs_msgs_tst.git
+[submodule "lrs2/lrs_plansys2"]
+	path = lrs2/lrs_plansys2
+	url = https://gitlab.liu.se/lrs2/lrs_plansys2.git
+[submodule "lrs2/lrs_srvs_exec"]
+	path = lrs2/lrs_srvs_exec
+	url = https://gitlab.liu.se/lrs2/lrs_srvs_exec.git
+[submodule "lrs2/lrs_srvs_ra"]
+	path = lrs2/lrs_srvs_ra
+	url = https://gitlab.liu.se/lrs2/lrs_srvs_ra.git
+[submodule "lrs2/lrs_srvs_tst"]
+	path = lrs2/lrs_srvs_tst
+	url = https://gitlab.liu.se/lrs2/lrs_srvs_tst.git
+[submodule "lrs2/lrs_srvs_wdb"]
+	path = lrs2/lrs_srvs_wdb
+	url = https://gitlab.liu.se/lrs2/lrs_srvs_wdb.git
+[submodule "lrs2/lrs_turtle"]
+	path = lrs2/lrs_turtle
+	url = https://gitlab.liu.se/lrs2/lrs_turtle.git
+[submodule "lrs2/lrs_util"]
+	path = lrs2/lrs_util
+	url = https://gitlab.liu.se/lrs2/lrs_util.git
+[submodule "lrs2/lrs_wdb"]
+	path = lrs2/lrs_wdb
+	url = https://gitlab.liu.se/lrs2/lrs_wdb.git
+[submodule "lrs2/ros2_dji_osdk_ros_msgs"]
+	path = lrs2/ros2_dji_osdk_ros_msgs
+	url = https://gitlab.liu.se/lrs2/ros2_dji_osdk_ros_msgs.git
