@@ -24,6 +24,7 @@ WORKDIR /opt/lrs2
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 	colcon build
 
+RUN apt-get install -y ros-${ROS_DISTRO}-rosbridge-suite
 
 
 COPY docker/ros_entrypoint.sh .
