@@ -46,3 +46,6 @@
 [submodule "lrs2/ros2_dji_osdk_ros_msgs"]
 	path = lrs2/ros2_dji_osdk_ros_msgs
 	url = https://gitlab.liu.se/lrs2/ros2_dji_osdk_ros_msgs.git
+[submodule "conceptio/rosbridge_suite"]
+	path = conceptio/rosbridge_suite
+	url = https://github.com/tsender/rosbridge_suite.git
