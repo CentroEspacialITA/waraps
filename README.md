@@ -1,12 +1,14 @@
-# WARA-PS 
-WARA-PS Core Arena fork as a docker image.
+# LRS2
+LRS2 fork as a docker image.
 
 
 # 1. Introduction
 
-This repository should be used for all CONCEPTIO agents willing to test and connect to the WARA-PS/LRS2 arena. 
+This repository should be used for all CONCEPTIO agents willing to test and connect to the WARA-PS/LRS2 arena[^1]. 
 
 Presently there is no docker image for LRS2, so the Dockerfile provided here uses osrf:ros-humble-desktop as a base image, copies all directories from "lrs2" (which are submodules) to the image, sources the ROS 2 installation and compiles all LRS2 packages. 
+
+[^1]: Actually, the LRS2 repository is not exactly the WARA-PS arena, which seems to be using ROS1 repositories... we must confirm this with the swedish side. 
 
 ## Docker 101
 A docker container is like a virtual machine running an Operating System with preinstalled software. It is used to quickly run applications that rely on specific libraries without spending time configuring the environment. That way, new agents can be added to the arena as quickly as possible. If your ROS2 node/package uses a specific library, you can also add it to the docker image. 
@@ -35,7 +37,7 @@ By default, LRS2 workspace is at the /opt/lrs2 folder and CONCEPTIO workspace is
 
 # Roadmap for september
 - [X] Run arena locally.
-- [ ] Create topics for UTM.
+- [ ] Create topics for UTM. (Ongoing with [br-utm](https://github.com/CentroEspacialITA/br-utm))
 - [ ] See arena agents in VR-Forces.
 - [ ] Add an agent to the arena.
 - [ ] Control a real (live) agent and see the behavior in Gazebo/Rviz/VR-Forces
