@@ -1,6 +1,7 @@
 # LRS2
 LRS2 fork as a docker image.
 
+![image](https://github.com/CentroEspacialITA/waraps/blob/main/doc/readme_img/container.svg)
 
 # 1. Introduction
 
