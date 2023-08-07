@@ -34,10 +34,13 @@ RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 
 # We need the forked version of rosbridge-suite (tsender) to include the TCP protocol.
 #RUN apt-get install -y ros-${ROS_DISTRO}-rosbridge-suite
-WORKDIR /opt/conceptio/rosbridge_suite
+WORKDIR /opt/conceptio/
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 	colcon build
+
+
+
 
 COPY docker/ros_entrypoint.sh .
 
