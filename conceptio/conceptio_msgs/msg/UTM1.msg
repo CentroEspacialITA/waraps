@@ -1,3 +1,3 @@
-uint64 timestamp_start
-uint64 timestamp_end
-string latlonalt_waypoints
+uint64 initial_time
+uint64 final_time
+string flight_path
