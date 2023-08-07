@@ -1,0 +1,3 @@
+uint64_t timestamp_start
+uint64_t timestamp_end
+string latlonalt_waypoints
