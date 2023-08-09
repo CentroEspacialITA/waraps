@@ -3,7 +3,7 @@
 ARG ROS_DISTRO=humble
 ARG WORKSPACE=/opt/conceptio
 
-FROM osrf/ros:${ROS_DISTRO}-desktop
+FROM ros:${ROS_DISTRO}
 
 WORKDIR /opt/
 COPY ["lrs2", "lrs2/"]
@@ -43,7 +43,7 @@ RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 
 WORKDIR /opt
 COPY ["docker/ros_entrypoint.sh", "/opt/ros_entrypoint.sh"]
-
+RUN ["chmod", "+x", "/opt/ros_entrypoint.sh"]
 ENTRYPOINT ["/opt/ros_entrypoint.sh"]
 CMD ["bash"]
 
