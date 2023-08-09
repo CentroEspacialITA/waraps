@@ -27,6 +27,9 @@ RUN rosdep install --from-paths conceptio/ --ignore-src -r -y
 #	apt-get update && rosdep install --from-paths \
 #	lrs2/ --ignore-src -y -r 
 
+WORKDIR /opt/conceptio/conceptio_msgs
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+	colcon build
 
 WORKDIR /opt/lrs2
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
@@ -35,10 +38,6 @@ RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 # We need the forked version of rosbridge-suite (tsender) to include the TCP protocol.
 #RUN apt-get install -y ros-${ROS_DISTRO}-rosbridge-suite
 WORKDIR /opt/conceptio/rosbridge_suite
-RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
-	colcon build
-
-WORKDIR /opt/conceptio/conceptio_msgs
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 	colcon build
 
