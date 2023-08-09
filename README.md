@@ -16,20 +16,23 @@ A docker container is like a virtual machine running an Operating System with pr
 
 You can either build the image yourself or download the image and create a new Docker container to run it:
 
-# 2. Building the image
+# 2. Building the image (Windows WSL2/Raspberry Pi)
 
 1. Download [Docker](https://www.docker.com/).
-2. Clone this repository using [GitHub Desktop](https://desktop.github.com/) or [git](https://git-scm.com/).
-3. To fetch LRS2 packages, open a PowerShell terminal on the root cloned folder and run ```git submodule init``` followed by ```git submodule update --remote```. This will get the most up-to-date packages from the swedish side.
-5. Open a PowerShell terminal on the root cloned folder and run ```docker build -f docker/Dockerfile . -t arena:1.0``` to start building the image. Don't forget the ```.```! This will take around 5 minutes.
+2. Clone this repository using [GitHub Desktop](https://desktop.github.com/) or [git](https://git-scm.com/). If you are on Raspberry Pi, control it via SSH and follow the instructions [here](https://stackoverflow.com/questions/2505096/clone-a-private-repository-github) to generate a token for GitHub.
+3. To fetch LRS2 packages, open the root cloned folder and run ```git submodule init``` followed by ```git submodule update --remote```. This will get the most up-to-date packages from the swedish side.
+4. Run ```docker build -f docker/Dockerfile . -t mvccogo/conceptio:base``` to start building the image for your architecture (ARM64 for RPI, AMD64 for Linux). Don't forget the ```.```! This will take around 5 minutes.
 
 
-# 3. Downloading the image
-(TODO) -> maybe self-host it at local server? (3.8 GB)
+# 3. Downloading the image (Recommended for RPI)
+Building the linux/arm64 image takes a looooooong time, so it is advisable to simply download the Docker image from the Conceptio Docker Hub repository. 
+1. Download [Docker](https://www.docker.com/).
+2. Run ```sudo docker pull mvccogo/conceptio:base```
 
 
 # 4. Using the arena
-On the root cloned folder, start the container with ```docker run -ti arena:1.0```
+On the root cloned folder, start the container with ```sudo docker run -ti --net=host mvccogo/conceptio:base```
+Note: use ```sudo``` only in RPI.
 
 Check [lrs_doc](https://gitlab.liu.se/lrs2/lrs_doc) section 2.2 for more info.
 
