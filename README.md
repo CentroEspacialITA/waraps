@@ -32,9 +32,13 @@ Building the linux/arm64 image takes a looooooong time, so it is advisable to si
 
 # 4. Using the arena
 On the root cloned folder, start the container with ```sudo docker run -ti -p 8000-8050:8000-8050 mvccogo/conceptio:base```
+
 Note: use ```sudo``` only in RPI.
-By default, ports 8000 to 8050 are exposed. Port 8000 is used for the VNC/X11 connection. 
+
+By default, ports 8000 to 8050 are exposed. Port 8000 is used for the VNC/X11 connection.
+
 To run another terminal in the same container, execute ```sudo docker exec -ti <container_name> bash``` and then inside it run ```. ros_entrypoint.sh```
+
 You can check the list of containers running using ```sudo docker ps```.
 
 
