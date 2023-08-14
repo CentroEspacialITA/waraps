@@ -49,3 +49,6 @@
 [submodule "conceptio/rosbridge_suite"]
 	path = conceptio/rosbridge_suite
 	url = https://github.com/mvccogo/rosbridge_suite.git
+[submodule "conceptio/remote_id"]
+	path = conceptio/remote_id
+	url = https://github.com/CentroEspacialITA/RemoteID.git
