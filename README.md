@@ -27,12 +27,16 @@ You can either build the image yourself or download the image and create a new D
 # 3. Downloading the image (Recommended for RPI)
 Building the linux/arm64 image takes a looooooong time, so it is advisable to simply download the Docker image from the Conceptio Docker Hub repository. 
 1. Download [Docker](https://www.docker.com/). (Raspbian/Debian instructions [here](https://docs.docker.com/engine/install/debian/)).
-2. Run ```sudo docker pull mvccogo/conceptio:base```
+2. Run ```sudo docker pull mvccogo/conceptio:base``` or ```sudo docker pull mvccogo/conceptio:nolrs2``` for a lightweight version.
 
 
 # 4. Using the arena
-On the root cloned folder, start the container with ```sudo docker run -ti --net=host mvccogo/conceptio:base```
+On the root cloned folder, start the container with ```sudo docker run -ti -p 8000-8050:8000-8050 mvccogo/conceptio:base```
 Note: use ```sudo``` only in RPI.
+By default, ports 8000 to 8050 are exposed. Port 8000 is used for the VNC/X11 connection. 
+To run another terminal in the same container, execute ```sudo docker exec -ti <container_name> bash``` and then inside it run ```. ros_entrypoint.sh```
+You can check the list of containers running using ```sudo docker ps```.
+
 
 Check [lrs_doc](https://gitlab.liu.se/lrs2/lrs_doc) section 2.2 for more info.
 
