@@ -12,7 +12,7 @@ COPY ["conceptio", "conceptio/"]
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install -y python3-pip xvfb x11vnc fluxbox guvcview fswebcam ffmpeg \
-	bluez libgps-dev libconfig-dev libbluetooth-dev
+	bluez libgps-dev libconfig-dev libbluetooth-dev nano
 
 RUN pip3 install --upgrade --user setuptools==58.2.0
 
