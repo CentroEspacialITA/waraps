@@ -11,8 +11,9 @@ COPY ["conceptio", "conceptio/"]
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt install -y python3-pip xvfb x11vnc fluxbox guvcview fswebcam ffmpeg \
-	bluez libgps-dev libconfig-dev libbluetooth-dev nano
+RUN apt update && apt upgrade -y && apt dist-upgrade && apt install -y python3-pip xvfb x11vnc fluxbox guvcview fswebcam ffmpeg \
+	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
+	build-essential cmake libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at
 
 RUN pip3 install --upgrade --user setuptools==58.2.0
 
@@ -46,11 +47,14 @@ WORKDIR /opt/conceptio/remote_id
 RUN gcc ./src/bluetooth/remote.c ./src/bluetooth/advle.c ./src/bluetooth/scan.c \ 
 	$(pkg-config --libs --cflags bluez libgps libconfig) -lm -pthread -o remote
 
+#WORKDIR /opt/conceptio/librealsense2
+#RUN mkdir build && cd build && cmake ../ -DBUILD_EXAMPLES=true && make && make install
 
 WORKDIR /opt
 COPY ["docker/ros_entrypoint.sh", "/opt/ros_entrypoint.sh"]
 RUN ["chmod", "+x", "/opt/ros_entrypoint.sh"]
 
-ENTRYPOINT ["/opt/ros_entrypoint.sh"]
-CMD ["bash"]
+COPY ["docker/.bashrc", "/root/.bashrc"]
+
+CMD /bin/bash -c "source /root/.bashrc && /opt/ros_entrypoint.sh"
 

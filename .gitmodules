@@ -52,3 +52,6 @@
 [submodule "conceptio/remote_id"]
 	path = conceptio/remote_id
 	url = https://github.com/CentroEspacialITA/RemoteID.git
+[submodule "conceptio/librealsense2"]
+	path = conceptio/librealsense2
+	url = https://github.com/IntelRealSense/librealsense.git
