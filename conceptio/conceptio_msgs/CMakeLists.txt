@@ -11,6 +11,7 @@ endif()
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   msg/Utm.msg
+  msg/Remoteid.msg
 )
 
 ament_export_dependencies(rosidl_default_runtime)
