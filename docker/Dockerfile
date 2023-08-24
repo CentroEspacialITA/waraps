@@ -43,9 +43,15 @@ WORKDIR /opt/conceptio/rosbridge_suite
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 	colcon build
 
-WORKDIR /opt/conceptio/remote_id
-RUN gcc ./RemoteID/src/bluetooth/remote.c ./RemoteID/src/bluetooth/advle.c ./RemoteID/src/bluetooth/scan.c \ 
-	$(pkg-config --libs --cflags bluez libgps libconfig) -lm -pthread -o remote
+WORKDIR /opt/conceptio/remote_id/RemoteID
+RUN mkdir build && \
+	cd build && \
+ 	cmake .. && \
+  	make
+
+WORKDIR /opt/conceptio/remote_id/ros2_ws
+RUN mkdir build && \
+	colcon build
 
 #WORKDIR /opt/conceptio/librealsense2
 #RUN mkdir build && cd build && cmake ../ -DBUILD_EXAMPLES=true && make && make install
