@@ -12,7 +12,7 @@ COPY ["conceptio", "conceptio/"]
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt upgrade -y && apt dist-upgrade && apt install -y python3-pip xvfb x11vnc fluxbox guvcview fswebcam ffmpeg \
-	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
+	bluez libgps-dev libconfig-dev libbluetooth-dev gpsd nano wget libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
 	build-essential cmake libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at
 
 RUN pip3 install --upgrade --user setuptools==58.2.0
