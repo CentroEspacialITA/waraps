@@ -55,9 +55,6 @@
 [submodule "conceptio/librealsense2"]
 	path = conceptio/librealsense2
 	url = https://github.com/IntelRealSense/librealsense.git
-[submodule "conceptio/aws-deepracer-ctrl-pkg"]
-	path = conceptio/aws-deepracer-ctrl-pkg
-	url = https://github.com/aws-deepracer/aws-deepracer-ctrl-pkg.git
-[submodule "conceptio/aws-deepracer-interfaces-pkg"]
-	path = conceptio/aws-deepracer-interfaces-pkg
-	url = https://github.com/aws-deepracer/aws-deepracer-interfaces-pkg.git
+[submodule "aws/aws-deepracer-launcher"]
+	path = aws/aws-deepracer-launcher
+	url = https://github.com/aws-deepracer/aws-deepracer-launcher.git
