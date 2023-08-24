@@ -53,6 +53,7 @@ WORKDIR /opt/conceptio/remote_id/ros2_ws
 RUN mkdir build && \
 	colcon build
 
+# Uncomment lines below to compile LibRealSense2
 #WORKDIR /opt/conceptio/librealsense2
 #RUN mkdir build && cd build && cmake ../ -DBUILD_EXAMPLES=true && make && make install
 
