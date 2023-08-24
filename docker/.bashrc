@@ -5,7 +5,7 @@ source "/opt/ros/$ROS_DISTRO/setup.bash"
 source "/opt/conceptio/rosbridge_suite/install/setup.bash"
 #source "/opt/lrs2/install/local_setup.bash"
 source "/opt/conceptio/conceptio_msgs/install/setup.bash"
-
+source "/opt/conceptio/remote_id/ros2_ws/install/setup.bash"
 
 # setup ros2 environment
 GREEN=$(tput setaf 2)
