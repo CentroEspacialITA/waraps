@@ -44,7 +44,7 @@ RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 	colcon build
 
 WORKDIR /opt/conceptio/remote_id
-RUN gcc ./src/bluetooth/remote.c ./src/bluetooth/advle.c ./src/bluetooth/scan.c \ 
+RUN gcc ./RemoteID/src/bluetooth/remote.c ./RemoteID/src/bluetooth/advle.c ./RemoteID/src/bluetooth/scan.c \ 
 	$(pkg-config --libs --cflags bluez libgps libconfig) -lm -pthread -o remote
 
 #WORKDIR /opt/conceptio/librealsense2
