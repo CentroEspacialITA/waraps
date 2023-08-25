@@ -19,7 +19,7 @@ RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip xvfb x11v
 	# Remote-ID 
 	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget gpsd
 
-RUN pip3 install --upgrade --user setuptools==58.2.0
+RUN pip3 install --upgrade setuptools==58.2.0
 
 RUN rosdep install --from-paths lrs2/ --ignore-src -r -y
 
