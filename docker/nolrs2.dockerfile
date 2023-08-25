@@ -17,7 +17,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 	# VNC/X11 Server + camera
 RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip xvfb x11vnc fluxbox guvcview fswebcam ffmpeg \   
 	# Remote-ID 
-	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget gpsd \ 
+	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget gpsd
 
 RUN pip3 install --upgrade --user setuptools==58.2.0
 
