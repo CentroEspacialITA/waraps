@@ -1,4 +1,4 @@
-name: Docker Image CI (Deepracer)
+name: Docker Image CI (NOLRS2)
 
 on:
   push:
