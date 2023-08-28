@@ -22,3 +22,4 @@ echo "                                                             ";
 
 
 echo -e -n "\n\t\t${CYAN}\nIn order to open more terminals, run the following docker command:\ndocker exec -ti -p PORT_RANGE:PORT_RANGE <container_name> bash\n ${NC}"
+set +e
