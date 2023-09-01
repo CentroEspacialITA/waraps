@@ -4,7 +4,12 @@ on:
   push:
     branches:
       - "main"
-
+    paths-ignore:
+      - .gitignore
+      - README.md
+      - 'doc/**'
+      - '.github/**'
+      
 jobs:
   docker:
     runs-on: ubuntu-latest
