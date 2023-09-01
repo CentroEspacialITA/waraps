@@ -7,17 +7,20 @@ ARG WORKSPACE=/opt/conceptio
 
 FROM ros:${ROS_DISTRO} as update_stage
 
+# VNC/X11 Server + camera
+RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip xvfb x11vnc fluxbox guvcview fswebcam ffmpeg \   
+	# Remote-ID 
+	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget gpsd
+
+
+FROM update_stage as dependency_stage
+
 WORKDIR /opt/
 COPY ["lrs2", "lrs2/"]
 COPY ["conceptio", "conceptio/"]
 COPY ["aws/", "/root/deepracer_ws"]
 
 ARG DEBIAN_FRONTEND=noninteractive
-
-	# VNC/X11 Server + camera
-RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip xvfb x11vnc fluxbox guvcview fswebcam ffmpeg \   
-	# Remote-ID 
-	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget gpsd
 
 RUN pip3 install --upgrade setuptools==58.2.0
 
@@ -26,7 +29,7 @@ RUN rosdep install --from-paths lrs2/ --ignore-src -r -y
 RUN rosdep install --from-paths conceptio/ --ignore-src -r -y
 
 
-FROM update_stage as compilation_stage
+FROM dependency_stage as compilation_stage
 
 #RUN apt install -y ros-humble-xacro ros-humble-turtlesim \ 
 #	ros-humble-geographic-msgs ros-humble-gazebo-msgs \
