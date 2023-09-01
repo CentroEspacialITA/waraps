@@ -1,3 +1,6 @@
+![MainBranchNOLRS2](https://github.com/CentroEspacialITA/waraps/actions/workflows/docker-image-nolrs2.yml/badge.svg?branch=main)
+![MainBranchDeepracer](https://github.com/CentroEspacialITA/waraps/actions/workflows/docker-image-deepracer.yml/badge.svg?branch=main)
+
 # LRS2
 LRS2 fork as a docker image.
 
@@ -21,23 +24,20 @@ You can either build the image yourself or download the image and create a new D
 1. Download [Docker](https://www.docker.com/) (Raspbian/Debian instructions [here](https://docs.docker.com/engine/install/debian/)).
 2. Clone this repository using [GitHub Desktop](https://desktop.github.com/) or [git](https://git-scm.com/). If you are on Raspberry Pi, control it via SSH and follow the instructions [here](https://stackoverflow.com/questions/2505096/clone-a-private-repository-github) to generate a token for GitHub.
 3. To fetch LRS2 packages, open the root cloned folder and run ```git submodule init``` followed by ```git submodule update --remote```. This will get the most up-to-date packages from the swedish side.
-4. Run ```docker build -f docker/Dockerfile . -t mvccogo/conceptio:base``` to start building the image for your architecture (ARM64 for RPI, AMD64 for Linux). Don't forget the ```.```! This will take around 5 minutes.
+4. Run ```docker build -f docker/Dockerfile . -t mvccogo/conceptio:base``` to start building the image for your architecture (ARM64 for RPI, AMD64 for x86_64). Don't forget the ```.```!
 
 
 # 3. Downloading the image (Recommended for RPI)
 Building the linux/arm64 image takes a looooooong time, so it is advisable to simply download the Docker image from the Conceptio Docker Hub repository. 
 1. Download [Docker](https://www.docker.com/). (Raspbian/Debian instructions [here](https://docs.docker.com/engine/install/debian/)).
-2. Run ```sudo docker pull mvccogo/conceptio:base``` or ```sudo docker pull mvccogo/conceptio:nolrs2``` for a lightweight version.
+2. Run ```sudo docker pull mvccogo/conceptio:deepracer``` or ```sudo docker pull mvccogo/conceptio:nolrs2```.
    
 Note: use ```sudo``` only in RPI.
 
 # 4. Using the arena
-On the root cloned folder, start the container with ```sudo docker run -ti -p 8000-8050:8000-8050 mvccogo/conceptio:base```
+On the root cloned folder, start the container with ```sudo docker run -ti --network host mvccogo/conceptio:nolrs2``` or ```sudo docker run -ti --network host mvccogo/conceptio:deepracer```
 
-
-By default, ports 8000 to 8050 are exposed. Port 8000 is used for the VNC/X11 connection.
-
-To run another terminal in the same container, execute ```sudo docker exec -ti <container_name> bash``` and then inside it run ```. ros_entrypoint.sh```
+To run another terminal in the same container, execute ```sudo docker exec -ti <container_name> bash```.
 
 You can check the list of containers running using ```sudo docker ps```.
 
@@ -46,6 +46,13 @@ Note: use ```sudo``` only in RPI.
 Check [lrs_doc](https://gitlab.liu.se/lrs2/lrs_doc) section 2.2 for more info.
 
 By default, LRS2 workspace is at the /opt/lrs2 folder and CONCEPTIO workspace is at /opt/conceptio. ROS2 is installed in /opt/ros. 
+
+# 5. Contributing to the image
+To contribute to the image, simply follow the [Dockerfile documentation](https://docs.docker.com/engine/reference/builder/). 
+
+Upon commiting to this repo, a workflow will start that will automatically push the newest image to Docker Hub.
+
+
 
 
 # Roadmap for september
