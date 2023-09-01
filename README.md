@@ -22,9 +22,9 @@ You can either build the image yourself or download the image and create a new D
 # 2. Building the image (Windows WSL2/Raspberry Pi)
 
 1. Download [Docker](https://www.docker.com/) (Raspbian/Debian instructions [here](https://docs.docker.com/engine/install/debian/)).
-2. Clone this repository using [GitHub Desktop](https://desktop.github.com/) or [git](https://git-scm.com/). If you are on Raspberry Pi, control it via SSH and follow the instructions [here](https://stackoverflow.com/questions/2505096/clone-a-private-repository-github) to generate a token for GitHub.
+2. Clone this repository using [GitHub Desktop](https://desktop.github.com/) or [git](https://git-scm.com/), by running the ```git clone https://github.com/CentroEspacialITA/waraps.git``` command. If you are on Raspberry Pi, control it via SSH and follow the instructions [here](https://stackoverflow.com/questions/2505096/clone-a-private-repository-github) to generate a token for GitHub.
 3. To fetch LRS2 packages, open the root cloned folder and run ```git submodule init``` followed by ```git submodule update --remote```. This will get the most up-to-date packages from the swedish side.
-4. Run ```docker build -f docker/Dockerfile . -t mvccogo/conceptio:base``` to start building the image for your architecture (ARM64 for RPI, AMD64 for x86_64). Don't forget the ```.```!
+4. Run ```docker build -f docker/nolrs2.dockerfile . -t mvccogo/conceptio:nolrs2``` or ```docker build -f docker/deepracer.dockerfile . -t mvccogo/conceptio:deepracer``` to start building the image for your architecture (ARM64 for RPI, AMD64 for x86_64). Don't forget the ```.```!
 
 
 # 3. Downloading the image (Recommended for RPI)
