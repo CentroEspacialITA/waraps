@@ -15,11 +15,11 @@ COPY ["aws/", "/root/deepracer_ws"]
 ARG DEBIAN_FRONTEND=noninteractive
 
 
-RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip  \   
+RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip curl zip unzip tar autoconf\   
 	# Remote-ID 
 	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget gpsd \ 
 	# IntelLibSense2
-	libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev build-essential cmake libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at  \
+	libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev build-essential cmake libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at \
 	# Deepracer
 	python3-rosinstall
 
@@ -28,7 +28,6 @@ RUN pip3 install --upgrade --user setuptools==58.2.0
 RUN rosdep install --from-paths lrs2/ --ignore-src -r -y
 
 RUN rosdep install --from-paths conceptio/ --ignore-src -r -y
-
 
 FROM update_stage as compilation_stage
 
@@ -65,11 +64,11 @@ RUN colcon build
 
 RUN apt install python3-rosinstall -y
 
-WORKDIR /root/deepracer_ws
-RUN cd aws-deepracer-launcher && ./install_dependencies.sh
-RUN . /opt/ros/${ROS_DISTRO}/setup.sh && cd aws-deepracer-launcher/ && rosws update
-RUN rosdep install -i --from-path . -y 
-RUN pip3 install openvino-dev==2021.4.2
+#WORKDIR /root/deepracer_ws
+#RUN cd aws-deepracer-launcher && ./install_dependencies.sh
+#RUN . /opt/ros/${ROS_DISTRO}/setup.sh && cd aws-deepracer-launcher/ && rosws update
+#RUN rosdep install -i --from-path . -y 
+#RUN pip3 install openvino-dev==2021.4.2
 #RUN . /opt/ros/${ROS_DISTRO}/setup.sh && cd /var/lib/intel/ && colcon build 
 
 
@@ -83,5 +82,4 @@ RUN ["chmod", "+x", "/opt/ros_entrypoint.sh"]
 
 COPY ["docker/.bashrc", "/root/.bashrc"]
 
-CMD /bin/bash -c "source /root/.bashrc && ./opt/ros_entrypoint.sh"
-
+CMD /bin/bash -c "/opt/ros_entrypoint.sh && bash"
