@@ -55,6 +55,3 @@
 [submodule "conceptio/librealsense2"]
 	path = conceptio/librealsense2
 	url = https://github.com/IntelRealSense/librealsense.git
-[submodule "aws/aws-deepracer-launcher"]
-	path = aws/aws-deepracer-launcher
-	url = https://github.com/aws-deepracer/aws-deepracer-launcher.git
