@@ -18,7 +18,6 @@ FROM update_stage as dependency_stage
 WORKDIR /opt/
 COPY ["lrs2", "lrs2/"]
 COPY ["conceptio", "conceptio/"]
-COPY ["aws/", "/root/deepracer_ws"]
 
 ARG DEBIAN_FRONTEND=noninteractive
 
