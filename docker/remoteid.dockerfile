@@ -7,7 +7,6 @@ ARG WORKSPACE=/opt/conceptio
 
 FROM ros:${ROS_DISTRO} as update_stage
 
-# VNC/X11 Server + camera
 RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip
 
 FROM ros:${ROS_DISTRO} as update_stage2
