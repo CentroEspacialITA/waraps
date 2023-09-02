@@ -52,4 +52,3 @@ RUN ["chmod", "+x", "/opt/ros_entrypoint.sh"]
 COPY ["docker/.bashrc", "/root/.bashrc"]
 
 CMD /bin/bash -c "/opt/ros_entrypoint.sh"
-
