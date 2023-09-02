@@ -9,8 +9,6 @@ FROM ros:${ROS_DISTRO} as update_stage
 
 RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip
 
-FROM ros:${ROS_DISTRO} as update_stage2
-
 # Remote-ID 
 RUN apt install -y bluez libgps-dev libconfig-dev libbluetooth-dev gpsd
 
