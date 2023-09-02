@@ -45,6 +45,8 @@ RUN mkdir build && \
 WORKDIR /opt/conceptio/remote_id/ros2_ws
 RUN colcon build
 
+FROM compilation_stage as pythonros_install
+
 RUN apt install python3-rosinstall -y
 
 WORKDIR /opt
