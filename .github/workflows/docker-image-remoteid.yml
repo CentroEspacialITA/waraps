@@ -38,5 +38,5 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: mvccogo/conceptio:nolrs2
-          file: docker/nolrs2.dockerfile
+          tags: mvccogo/conceptio:remoteid
+          file: docker/remoteid.dockerfile
