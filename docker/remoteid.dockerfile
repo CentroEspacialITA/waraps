@@ -8,9 +8,12 @@ ARG WORKSPACE=/opt/conceptio
 FROM ros:${ROS_DISTRO} as update_stage
 
 # VNC/X11 Server + camera
-RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip \   
-	# Remote-ID 
-	bluez libgps-dev libconfig-dev libbluetooth-dev gpsd
+RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip
+
+FROM ros:${ROS_DISTRO} as update_stage2
+
+# Remote-ID 
+RUN apt install -y bluez libgps-dev libconfig-dev libbluetooth-dev gpsd
 
 FROM update_stage as dependency_stage
 
@@ -42,6 +45,8 @@ RUN mkdir build && \
 
 WORKDIR /opt/conceptio/remote_id/ros2_ws
 RUN colcon build
+
+FROM dependency_stage as pythonros_install
 
 RUN apt install python3-rosinstall -y
 

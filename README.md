@@ -1,5 +1,6 @@
 ![MainBranchNOLRS2](https://github.com/CentroEspacialITA/waraps/actions/workflows/docker-image-nolrs2.yml/badge.svg?branch=main)
 ![MainBranchDeepracer](https://github.com/CentroEspacialITA/waraps/actions/workflows/docker-image-deepracer.yml/badge.svg?branch=main)
+[![Docker Image CI (REMOTEID)](https://github.com/CentroEspacialITA/waraps/actions/workflows/docker-image-remoteid.yml/badge.svg?branch=main)]
 
 # LRS2
 LRS2 fork as a docker image.
