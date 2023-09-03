@@ -7,7 +7,7 @@ ARG WORKSPACE=/opt/conceptio
 FROM ros:${ROS_DISTRO} as update_stage
 
 RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip
-RUN pip install pygame
+RUN pip install inputs
 
 FROM update_stage as dependency_stage
 
