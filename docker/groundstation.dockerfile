@@ -38,7 +38,7 @@ RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 FROM compilation_stage as pythonros_install
 
 RUN apt install python3-rosinstall -y
-
+RUN pip install pygame
 WORKDIR /opt
 COPY ["docker/ros_entrypoint.sh", "/opt/ros_entrypoint.sh"]
 RUN ["chmod", "+x", "/opt/ros_entrypoint.sh"]
