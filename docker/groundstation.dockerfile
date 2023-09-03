@@ -31,6 +31,9 @@ WORKDIR /opt/conceptio/rosbridge_suite
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 	colcon build
 
+WORKDIR /opt/aws/aws-deepracer-interfaces-pkg/deepracer_interfaces_pkg
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+	colcon build
 
 FROM compilation_stage as pythonros_install
 
