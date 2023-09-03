@@ -14,7 +14,7 @@ FROM update_stage as dependency_stage
 WORKDIR /opt/
 COPY ["lrs2", "lrs2/"]
 COPY ["conceptio", "conceptio/"]
-
+COPY ["aws", "aws/"]
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN pip3 install --upgrade setuptools==58.2.0
