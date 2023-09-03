@@ -58,3 +58,6 @@
 [submodule "conceptio/groundstation"]
 	path = conceptio/groundstation
 	url = https://github.com/CentroEspacialITA/groundstation.git
+[submodule "aws/aws-deepracer-interfaces-pkg"]
+	path = aws/aws-deepracer-interfaces-pkg
+	url = https://github.com/aws-deepracer/aws-deepracer-interfaces-pkg.git
