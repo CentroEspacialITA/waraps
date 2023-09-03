@@ -55,3 +55,6 @@
 [submodule "conceptio/librealsense2"]
 	path = conceptio/librealsense2
 	url = https://github.com/IntelRealSense/librealsense.git
+[submodule "conceptio/groundstation"]
+	path = conceptio/groundstation
+	url = https://github.com/CentroEspacialITA/groundstation.git

@@ -13,6 +13,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   msg/Utm.msg
   msg/Remoteid.msg
   msg/CapellaPropertyValue.msg
+  msg/DeepracerCtrl.msg
 )
 
 ament_export_dependencies(rosidl_default_runtime)
