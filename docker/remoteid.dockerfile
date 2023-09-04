@@ -7,10 +7,10 @@ ARG WORKSPACE=/opt/conceptio
 
 FROM ros:${ROS_DISTRO} as update_stage
 
-RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip
+RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip xvfb x11vnc
 
 # Remote-ID 
-RUN apt install -y bluez libgps-dev libconfig-dev libbluetooth-dev gpsd
+RUN apt install -y bluez libgps-dev libconfig-dev libbluetooth-dev gpsd tmux
 
 FROM update_stage as dependency_stage
 
@@ -30,10 +30,6 @@ WORKDIR /opt/conceptio/conceptio_msgs
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 	colcon build
 
-WORKDIR /opt/conceptio/rosbridge_suite
-RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
-	colcon build
-
 WORKDIR /opt/conceptio/remote_id/RemoteID
 RUN mkdir build && \
 	cd build && \
@@ -48,9 +44,9 @@ FROM compilation_stage as pythonros_install
 RUN apt install python3-rosinstall -y
 
 WORKDIR /opt
-COPY ["docker/ros_entryremoteid.sh", "/opt/ros_entrypoint.sh"]
-RUN ["chmod", "+x", "/opt/ros_entrypoint.sh"]
+COPY ["docker/ros_entryremoteid.sh", "/opt/ros_entryremoteid.sh"]
+RUN ["chmod", "+x", "/opt/ros_entryremoteid.sh"]
 
-COPY ["docker/.bashrc", "/root/.bashrc"]
+COPY ["docker/.remotebashrc", "/root/.bashrc"]
 
-CMD /bin/bash -c "/opt/ros_entrypoint.sh"
+CMD /bin/bash -c "/opt/ros_entryremoteid.sh && bash"
