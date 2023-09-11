@@ -64,6 +64,11 @@ RUN colcon build
 
 RUN apt install python3-rosinstall -y
 
+WORKDIR /opt/aws/aws-deepracer-interfaces-pkg/deepracer_interfaces_pkg
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+	colcon build
+
+
 WORKDIR /opt
 COPY ["docker/ros_entrypoint.sh", "/opt/ros_entrypoint.sh"]
 RUN ["chmod", "+x", "/opt/ros_entrypoint.sh"]
