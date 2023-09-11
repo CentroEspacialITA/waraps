@@ -6,6 +6,9 @@ source "/opt/ros/$ROS_DISTRO/setup.bash"
 #source "/opt/lrs2/install/local_setup.bash"
 source "/opt/conceptio/conceptio_msgs/install/setup.bash"
 source "/opt/conceptio/remote_id/ros2_ws/install/setup.bash"
+tmux new -d '/opt/conceptio/remote_id/RemoteID/build/remote l g'
+sleep 50
+tmux new -d 'ros2 run remoteid_pubsub talker'
 
 # setup ros2 environment
 GREEN=$(tput setaf 2)
@@ -19,8 +22,5 @@ echo " | |___| |__| | |\  | |____| |____| |      | |   _| || |__| |";
 echo "  \_____\____/|_| \_|\_____|______|_|      |_|  |_____\____/ ";
 echo "                                                             ";
 
-tmux new -d 'ros2 run remoteid_pubsub talker'
-
 echo -e -n "\n\t\t${CYAN}\nIn order to open more terminals, run the following docker command:\ndocker exec -ti -p PORT_RANGE:PORT_RANGE <container_name> bash\n ${NC}"
-tmux new -d '/opt/conceptio/remote_id/RemoteID/build/remote l'
 set +e
