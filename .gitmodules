@@ -61,3 +61,6 @@
 [submodule "aws/aws-deepracer-interfaces-pkg"]
 	path = aws/aws-deepracer-interfaces-pkg
 	url = https://github.com/aws-deepracer/aws-deepracer-interfaces-pkg.git
+[submodule "lrs2/lrs_mqtt"]
+	path = lrs2/lrs_mqtt
+	url = https://gitlab.liu.se/lrs2/lrs_mqtt.git
