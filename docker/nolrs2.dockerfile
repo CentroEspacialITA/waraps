@@ -10,7 +10,8 @@ FROM ros:${ROS_DISTRO} as update_stage
 # VNC/X11 Server + camera
 RUN apt update -y && apt dist-upgrade -y && apt install -y python3-pip xvfb x11vnc fluxbox guvcview fswebcam ffmpeg \   
 	# Remote-ID 
-	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget gpsd
+	bluez libgps-dev libconfig-dev libbluetooth-dev nano wget gpsd \
+	paho-mqtt xacro pyproj 
 
 
 FROM update_stage as dependency_stage
@@ -43,9 +44,35 @@ WORKDIR /opt/conceptio/conceptio_msgs
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 	colcon build
 
-#WORKDIR /opt/lrs2
-#RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
-#	colcon build
+WORKDIR /opt/lrs2/geographic_msgs/
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+	colcon build
+
+WORKDIR /opt/lrs2/lrs_msgs_common
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+     . /opt/lrs2/geographic_msgs/install/setup.sh && \
+	colcon build
+
+	
+WORKDIR /opt/lrs2/lrs_msgs_tst
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+     . /opt/lrs2/geographic_msgs/install/setup.sh && \
+	colcon build
+
+WORKDIR /opt/lrs2/lrs_util
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+	colcon build
+
+
+WORKDIR /opt/lrs2/lrs_json_api
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+     . /opt/lrs2/geographic_msgs/install/setup.sh && \
+	colcon build
+
+WORKDIR /opt/lrs2/lrs_mqtt
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+	colcon build
+
 
 # We need the forked version of rosbridge-suite (tsender) to include the TCP protocol.
 #RUN apt-get install -y ros-${ROS_DISTRO}-rosbridge-suite

@@ -64,3 +64,6 @@
 [submodule "lrs2/lrs_mqtt"]
 	path = lrs2/lrs_mqtt
 	url = https://gitlab.liu.se/lrs2/lrs_mqtt.git
+[submodule "lrs2/lrs_json_api"]
+	path = lrs2/lrs_json_api
+	url = https://gitlab.liu.se/lrs2/lrs_json_api.git
